@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  eureka-server:
+    ports:
+      - "9999:9999"
+    environment:
+      SPRING_CONFIG_IMPORT: "configserver:http://config-server:8888"
+      SPRING_APPLICATION_NAME: "eureka-server"
+      SPRING_CONFIG_NAME: "eureka-server"
+      SPRING_CONFIG_LABEL: "master"
+      SPRING_CONFIG_FAIL_FAST: "true"
+    networks:
+      - ecommerce
+
+networks:
+  ecommerce:
+    driver: bridge
