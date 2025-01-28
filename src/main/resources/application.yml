@@ -2,7 +2,7 @@ spring:
   application:
     name: eureka-server
   config:
-    import: configserver:http://localhost:8888
+    import: ${SPRING_CONFIG_IMPORT:configserver:http://localhost:8888}
     label: master
     name: eureka-server
     fail-fast: true
