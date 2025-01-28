@@ -30,11 +30,7 @@ WORKDIR /app
 # Copy the Spring Boot jar from the build stage
 COPY --from=build /app/build/libs/eureka-server-*-SNAPSHOT.jar /app/app.jar
 
-ENV SPRING_APPLICATION_NAME=eureka-server \
-    SPRING_CONFIG_IMPORT=configserver:http://localhost:8888 \
-    SPRING_CONFIG_NAME=eureka-server \
-    SPRING_CONFIG_LABEL=master \
-    SPRING_CONFIG_FAIL_FAST=true
+ENV SPRING_CONFIG_IMPORT=configserver:http://localhost:8888
 
 # Expose the port your Spring Boot application runs on
 EXPOSE 9999
