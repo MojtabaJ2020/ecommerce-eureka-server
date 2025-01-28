@@ -6,9 +6,9 @@ services:
     ports:
       - "9999:9999"
     environment:
-      CONFIG_SERVER_URL: "http://config-server:8888"
-      EUREKA_SERVER_URL: "http://eureka-server:9999/eureka"
-      EUREKA_INSTANCE_HOSTNAME: eureka-server
+      - SPRING_CONFIG_IMPORT=http://config-server:8888
+      - EUREKA_SERVER_URL=http://eureka-server:9999/eureka
+      - EUREKA_INSTANCE_HOSTNAME=eureka-server
     networks:
       - ecommerce-network
 networks:
