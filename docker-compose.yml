@@ -2,17 +2,17 @@ version: '3.8'
 services:
   eureka-server:
     image: mojtaba2422/ecommerce-eureka-server:latest
-    container_name: eureka-server
+    container_name: ecommerce-eureka-server
     ports:
       - "9999:9999"
     environment:
-      - SPRING_CONFIG_IMPORT=configserver:http://config-server:8888
-      - EUREKA_SERVER_URL=http://eureka-server:9999/eureka
-      - EUREKA_INSTANCE_HOSTNAME=eureka-server
+      - SPRING_CONFIG_IMPORT=configserver:http://ecommerce-config-server:8888
+      - EUREKA_SERVER_URL=http://ecommerce-eureka-server:9999/eureka
+      - EUREKA_INSTANCE_HOSTNAME=ecommerce-eureka-server
     networks:
       - ecommerce-network
 networks:
   ecommerce-network:
-    name: ecommerce-network  # Force the network name to 'ecommerce'
+    name: ecommerce-network
     driver: bridge
     external: true
